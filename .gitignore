@@ -1,0 +1,18 @@
+node_modules/
+.env
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+web/build/
+web/.react-router/
+server/dist/
+test-results/
+playwright-report/
+.lighthouseci/
+.DS_Store
+
+# Course transcripts used as reference (third-party content, not published)
+seo.md
+samoh-seo.md
+samoh-aeo.md

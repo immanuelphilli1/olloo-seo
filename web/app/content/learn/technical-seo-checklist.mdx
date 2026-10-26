@@ -1,0 +1,153 @@
+import { site } from "~/config/site";
+
+Technical SEO makes sure Google and AI crawlers can find, read and index your pages. Most problems come from a short list: stray noindex tags, robots.txt blocks, missing sitemaps, bad redirects, wrong canonicals and slow pages. Check each item below, fix what you find, then run an audit on a schedule so new problems do not pile up.
+
+## Why technical SEO comes first
+
+Technical SEO comes first because a page that search engines cannot access or index will never rank, no matter how good it is. Ahrefs' SEO course defines technical SEO as optimizing your site so search engines can find, understand and index your pages. The same is true for AI search. ChatGPT, Perplexity and Google AI Overviews can only cite pages their crawlers can reach.
+
+The good news is that technical SEO does not need to be very technical. Most content management systems, like WordPress with Yoast or Rank Math, handle many basics for you. Your job is to catch the mistakes.
+
+## Check that your pages are indexed
+
+The first check is whether Google has your pages in its index at all. Open Google Search Console and look at the Pages report. It lists which pages are indexed and why others are not. Use the URL Inspection tool to test a single page.
+
+For a quick check, search Google for `site:yourdomain.com`. If key pages are missing, work through the rest of this list to find out why. Do the same in Bing Webmaster Tools, since ChatGPT relies on Bing's index when it searches the web.
+
+## Remove stray noindex tags
+
+A noindex tag tells search engines not to add a page to their index. It looks like this:
+
+```html
+<meta name="robots" content="noindex">
+```
+
+This tag causes more lost traffic than most people expect. Ahrefs' course describes a common case. A designer builds your new site on a test domain and adds noindex so it stays hidden. After launch, they forget to remove it, and your pages drop out of Google.
+
+Check your important pages for this tag, especially after a redesign or migration. Some pages, like thin author archives, can be noindexed on purpose. Your homepage, product pages and articles should not be.
+
+## Check your robots.txt file
+
+Your robots.txt file tells crawlers which parts of your site they may visit. It lives at `yourdomain.com/robots.txt`. Ahrefs calls it one of the first places to check when you have indexing problems.
+
+This file blocks every crawler from your whole site. You almost never want it:
+
+```text
+User-agent: *
+Disallow: /
+```
+
+This file blocks only the WordPress admin area and lists your sitemap. It is a safe starting point:
+
+```text
+User-agent: *
+Disallow: /wp-admin/
+
+Sitemap: https://yourdomain.com/sitemap.xml
+```
+
+Also look for rules that name AI crawlers, such as GPTBot, OAI-SearchBot, ClaudeBot and Google-Extended. Ahrefs data shows about 5.9% of 140 million websites block GPTBot, often without knowing it. Templates, old settings and features like Cloudflare's AI bot setting can add these blocks. Test your file with the [robots.txt checker](/tools/robots-txt-checker), or build a clean one with the [robots.txt generator](/tools/robots-txt-generator). Our guide to [robots.txt for AI crawlers](/learn/robots-txt-ai-crawlers) explains each bot.
+
+## Submit an XML sitemap
+
+An XML sitemap lists the important URLs on your site so search engines can crawl it more efficiently. Writing one by hand is hard to maintain. On WordPress, Yoast and Rank Math create and update one for you.
+
+Help search engines find your sitemap in three ways:
+
+1. Add a `Sitemap:` line to robots.txt.
+2. Submit it in Google Search Console.
+3. Submit it in Bing Webmaster Tools.
+
+Make sure the sitemap only lists pages you want indexed. It should not include redirected, broken or noindexed URLs. The [sitemap checker](/tools/sitemap-checker) flags these problems.
+
+## Use HTTPS and 301 redirects
+
+Redirects send visitors and crawlers from one URL to another, and they combine the signals of both URLs into one. Use a permanent 301 redirect whenever a page moves or two pages cover the same topic. For example, an old "best golf balls 2018" page should redirect to your current "best golf balls" page.
+
+Your whole site should also load on one secure version. Redirect `http://` to `https://`, and pick either `www` or no `www`. Here is an Apache rule for a single moved page:
+
+```text
+Redirect 301 /best-golf-balls-2018 /best-golf-balls
+```
+
+And the same rule in Nginx:
+
+```text
+location = /best-golf-balls-2018 {
+    return 301 /best-golf-balls;
+}
+```
+
+Avoid redirect chains, where URL A redirects to B, which redirects to C. Point every redirect straight to the final page. The [redirect checker](/tools/redirect-checker) shows every hop and status code for any URL.
+
+## Set canonical tags
+
+A canonical tag tells search engines which URL is the preferred version of a page. It solves duplicate content, where the same page is reachable at more than one address. It looks like this:
+
+```html
+<link rel="canonical" href="https://yourdomain.com/best-golf-balls">
+```
+
+Search engines then pass signals like links to the canonical URL instead of splitting them. Google treats the tag as a hint, not a rule. Ahrefs notes that if you point the canonical to an insecure HTTP page, Google will probably pick the HTTPS version anyway. Each page should usually have a canonical that points to itself.
+
+## Fix broken links, orphan pages and redirect chains
+
+Broken links, orphan pages and redirect chains are the most common technical errors on growing sites. Each one makes your site harder to crawl.
+
+- **Broken pages** return a 404 error but still have links pointing to them. Fix the link or redirect the old URL.
+- **Orphan pages** have no internal links pointing to them. Crawlers struggle to find them. Link to them from related pages.
+- **Duplicate content** splits signals. Use redirects or canonicals.
+- **AI-invented URLs** are links that AI assistants make up. Ahrefs found AI assistants send visitors to 404 pages 2.87 times more often than Google search. If a fake URL gets steady traffic, redirect it to the closest real page.
+
+## Build a logical site structure
+
+Site structure is how your pages connect through internal links. Picture a mind map. Your homepage sits at the top. Main sections like services, blog and about branch from it. Individual pages branch from those.
+
+A clear structure helps search engines crawl your pages and understand how they relate. Every important page should be reachable through internal links, not only through the sitemap.
+
+## Make your pages load fast
+
+Page speed is a Google ranking signal. According to Ahrefs' course, it has been a desktop ranking factor since 2010 and a mobile one since 2018. Google has said the update only affects the slowest pages, so you do not need to chase every millisecond.
+
+Start with two basics:
+
+1. **Turn on caching.** Most web hosts include a caching feature.
+2. **Compress your images.** Smaller files load faster. ShortPixel works on the web or as a WordPress plugin.
+
+Then test key pages in PageSpeed Insights and check the Core Web Vitals report in Google Search Console. Speed matters for AI too. AI systems fetch pages live, and a slow page can be dropped before it is read. Our guide to [Core Web Vitals](/learn/core-web-vitals) covers the fixes for each metric.
+
+## Make sure content loads without JavaScript
+
+Your main content should be in the HTML the server sends, not built later by JavaScript. Ahrefs notes that ChatGPT's crawler does not render JavaScript, while Gemini and Copilot can. If your site is a single-page app built with React or Angular, ChatGPT may see an empty page.
+
+To test it, turn off JavaScript in your browser and reload your page. If the text disappears, ask your developer about server-side rendering. The free [AI crawler checker](/tools/ai-crawler-checker) also shows whether AI bots can reach your pages.
+
+## Run technical audits on a schedule
+
+A scheduled audit catches new problems before they cost you traffic. Sites change all the time, and errors creep in with each update.
+
+Pick one tool and run it regularly:
+
+- **Screaming Frog** crawls your site from your computer and lists every status code, title and redirect.
+- **Ahrefs Webmaster Tools** is free and crawls up to 10,000 pages per site you own. You can schedule weekly audits.
+- **Google Search Console** emails you when it finds new indexing problems.
+
+For a fast first check, [the free {site.name} audit](/) tests your site for crawling, indexing, redirect and AI crawler issues and writes the fix for each one. Your {site.brand} SEO Score shows at a glance whether your technical health is getting better or worse.
+
+## FAQ
+
+### What is the most common technical SEO mistake?
+
+A forgotten noindex tag or a robots.txt block is the most damaging common mistake. Both can remove whole sections of a site from Google. They often happen after a redesign, when settings from a test site go live.
+
+### How often should I run a technical SEO audit?
+
+Run a full audit at least monthly, and weekly if your site changes often. Always run one after a redesign, migration or platform change. Ahrefs Webmaster Tools and the {site.name} audit both make this quick.
+
+### Do I need a developer for technical SEO?
+
+Usually not for the basics. On WordPress, Yoast or Rank Math handle sitemaps, canonicals and noindex settings. You may need a developer for server-side rendering, complex redirects or deep speed work.
+
+### Does technical SEO affect AI search?
+
+Yes. AI assistants can only cite pages they can crawl and read. Blocked AI bots, content that needs JavaScript and slow pages can all keep you out of AI answers.

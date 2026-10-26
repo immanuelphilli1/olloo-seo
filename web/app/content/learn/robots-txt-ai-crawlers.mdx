@@ -1,0 +1,138 @@
+import { site } from "~/config/site";
+
+To show up in AI search, your robots.txt must allow the AI search bots: OAI-SearchBot and ChatGPT-User for ChatGPT, PerplexityBot for Perplexity, Claude-SearchBot for Claude, plus Googlebot and Bingbot. Training bots like GPTBot, ClaudeBot and Google-Extended are a separate choice. You can block training and still be cited in AI answers.
+
+## Search bots vs training bots
+
+AI companies run two kinds of bots, and they do different jobs. Search bots fetch your pages so an AI tool can cite them in an answer. Training bots collect your content to train future AI models.
+
+Search bots are the ones that can send you traffic. OAI-SearchBot and ChatGPT-User fetch pages when people use ChatGPT search. If you block them, ChatGPT can't read your pages when it answers a question.
+
+Training bots work on a longer timeline. GPTBot and ClaudeBot gather text that may end up in a model's training data. Blocking them does not remove you from AI search results. It only asks the company not to train on your content.
+
+This split matters because many sites block "AI bots" as one group. They mean to stop training, but they block AI search as well.
+
+## Which AI crawlers visit your site
+
+The table below lists the main crawlers and control tokens you will see in robots.txt files. The "Purpose" column shows whether each bot powers search and citations or model training.
+
+| User-agent | Owner | Purpose | What it does |
+| --- | --- | --- | --- |
+| Googlebot | Google | Search | Crawls pages for Google Search, including AI Overviews and AI Mode. |
+| Bingbot | Microsoft | Search | Crawls pages for Bing. ChatGPT search uses Bing's index. |
+| OAI-SearchBot | OpenAI | Search and citation | Indexes pages so they can appear in ChatGPT search answers. |
+| ChatGPT-User | OpenAI | Search and citation | Fetches a page live when a ChatGPT user's request needs it. |
+| GPTBot | OpenAI | Training | Collects content to train OpenAI's models. |
+| PerplexityBot | Perplexity | Search and citation | Indexes pages for Perplexity answers. |
+| Claude-SearchBot | Anthropic | Search and citation | Indexes pages to improve Claude's search results. |
+| ClaudeBot | Anthropic | Training | Collects content to train Anthropic's Claude models. |
+| Google-Extended | Google | Training | A control token, not a separate crawler. It controls whether Gemini models can use content Googlebot already crawled. |
+| Applebot-Extended | Apple | Training | A control token, not a separate crawler. It controls whether Apple can use your content to train its AI models. |
+
+Blocking Google-Extended does not remove you from Google Search, Google AI Overviews or Google AI Mode. Those features use Googlebot.
+
+## robots.txt example: allow everything
+
+The simplest setup lets every bot crawl your whole site. Use this if you want maximum reach in both search and AI. Replace the sitemap URL with your own.
+
+```text
+User-agent: *
+Allow: /
+
+Sitemap: https://www.example.com/sitemap.xml
+```
+
+A blank robots.txt file also allows everything. So does having no robots.txt file at all.
+
+## robots.txt example: allow AI search, block training
+
+This setup lets AI tools cite your pages but asks them not to train on your content. It is a good middle ground for most businesses. Each group of `User-agent` lines shares the rule below it.
+
+```text
+# AI search and citation bots: allowed
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: Claude-SearchBot
+Allow: /
+
+# AI training bots and tokens: blocked
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+Disallow: /
+
+# Everyone else, including Googlebot and Bingbot
+User-agent: *
+Allow: /
+
+Sitemap: https://www.example.com/sitemap.xml
+```
+
+## robots.txt example: block all AI bots
+
+This setup blocks AI search and AI training bots, but keeps Googlebot and Bingbot. Use it only if you are sure you don't want AI visibility. ChatGPT, Perplexity and Claude will no longer be able to read your pages to cite them.
+
+```text
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.example.com/sitemap.xml
+```
+
+This will not remove you from Google AI Overviews, because those come from Googlebot. AI tools can also still mention your brand based on what other sites say about you.
+
+If you want to build any of these files without typing them by hand, use the [robots.txt generator](/tools/robots-txt-generator).
+
+## How Cloudflare can block AI crawlers without you knowing
+
+Cloudflare can change how AI bots treat your site even if you never edit robots.txt. According to the Ahrefs AEO course, Cloudflare has a feature called "Instruct AI bot traffic with robots.txt" that is now on by default. When it is on, Cloudflare updates your robots.txt to signal that your content shouldn't be used for AI training.
+
+Cloudflare also offers settings that block AI bots at the network level. Those blocks stop the request before it reaches your site, no matter what your robots.txt says. Depending on how they are set, they can catch AI search bots, not just training bots.
+
+This is why many sites are invisible to AI without knowing it. Ahrefs found that about 5.9% of 140 million websites block GPTBot. If your site runs on Cloudflare, open your domain in the Cloudflare dashboard and review its bot and AI crawler settings. Make sure the AI search bots you want are allowed.
+
+## How to test your robots.txt for AI crawlers
+
+You can test AI crawler access in under a minute. Run your domain through the [AI crawler checker](/tools/ai-crawler-checker). It shows which AI bots your site allows and which it blocks. Then use the [robots.txt checker](/tools/robots-txt-checker) to catch syntax errors and rules that block more than you meant to.
+
+You can also check by hand. Open `yourdomain.com/robots.txt` in your browser. Look for `Disallow` lines under GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, PerplexityBot or Google-Extended. A rule of `Disallow: /` under a bot blocks your whole site for that bot.
+
+[The free {site.name} audit](/) runs these checks as part of the {site.brand} AI Visibility Score. It also checks JavaScript rendering and schema, then writes the fixes. For the rest of the AI search playbook, read [how to rank in ChatGPT and AI search](/learn/how-to-rank-in-chatgpt).
+
+## robots.txt is advisory, not a lock
+
+robots.txt is a request, not a security barrier. Well-behaved bots like Googlebot, Bingbot, GPTBot and ClaudeBot follow it. Bad bots can ignore it. If you need to truly stop a bot, block it at your server, firewall or CDN.
+
+robots.txt also controls crawling, not what a model already knows. Blocking GPTBot today does not remove content it collected in the past. And robots.txt can't stop AI tools from mentioning your brand when other sites talk about you.
+
+Keep robots.txt in mind when you fix [crawling and indexing problems](/learn/technical-seo-checklist). It is one of the first places to look when pages go missing from search or AI answers.
+
+## FAQ
+
+### Does blocking GPTBot remove me from ChatGPT?
+
+No. GPTBot collects data to train OpenAI's models. ChatGPT search uses OAI-SearchBot and ChatGPT-User to read pages it cites. You can block GPTBot and still allow those two bots.
+
+### What is the difference between ClaudeBot and Claude-SearchBot?
+
+Both belong to Anthropic, but they do different jobs. ClaudeBot collects content to train Claude models. Claude-SearchBot indexes pages so Claude can find and cite them in search results.
+
+### Does blocking Google-Extended remove me from AI Overviews?
+
+No. Google-Extended only controls whether Gemini models can use your content. Google AI Overviews and AI Mode are part of Google Search, which uses Googlebot. Blocking Googlebot would remove you from Google Search entirely.
+
+### Should I also add an llms.txt file?
+
+It is optional. llms.txt is a proposed standard, and the Ahrefs AEO course notes that no major LLM provider has confirmed using it. Fix your robots.txt first, because that file actually controls access. Our [guide to llms.txt](/learn/llms-txt) covers the details.

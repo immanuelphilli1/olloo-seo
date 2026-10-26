@@ -1,0 +1,103 @@
+import { site } from "~/config/site";
+
+llms.txt is a proposed file that gives AI assistants a short Markdown summary of your site and links to your most important pages. According to the Ahrefs AEO course, no major LLM provider has confirmed that it uses the file. Adding one is harmless and takes minutes, but it is low priority next to robots.txt access, crawlable HTML and brand mentions.
+
+## What llms.txt is
+
+llms.txt is a plain text file written in Markdown that lives at the root of your site, at `yourdomain.com/llms.txt`. It tells AI systems who you are, what your site covers and where your best content lives. The idea was proposed in 2024 by Jeremy Howard of Answer.AI.
+
+It is not the same as robots.txt. robots.txt tells bots which pages they may crawl. llms.txt does not allow or block anything. It is closer to a curated table of contents for AI tools.
+
+The proposed format is simple:
+
+- A top-level heading with your site or brand name.
+- A short summary in a blockquote.
+- Optional notes about your business.
+- Sections with lists of links, each with a one-line description.
+
+## Does ChatGPT, Gemini or Claude use llms.txt?
+
+No major AI company has confirmed that it reads llms.txt. The Ahrefs AEO course sums up the current state. OpenAI doesn't use it. Anthropic publishes an llms.txt file on its own site but hasn't confirmed its crawlers read it. Google hasn't adopted it either.
+
+Ahrefs' verdict is that llms.txt is useful in theory and probably won't hurt you. But it should not come before the basics. As the course puts it, robots.txt is still the file that matters most right now.
+
+## Example llms.txt file
+
+A good llms.txt file is short and points to your most useful pages. Here is an example for a fictional coffee shop. Swap in your own name, summary and links.
+
+```markdown
+# Example Coffee Co.
+
+> Example Coffee Co. roasts and sells specialty coffee beans online and ships across the United States.
+
+We roast in small batches and publish brewing guides for beginners.
+
+## Products
+
+- [Single-origin beans](https://www.example.com/beans): Our full range of single-origin coffees.
+- [Subscriptions](https://www.example.com/subscriptions): Weekly and monthly delivery plans.
+
+## Guides
+
+- [How to brew pour-over coffee](https://www.example.com/guides/pour-over): A step-by-step brewing guide.
+- [Coffee grind size chart](https://www.example.com/guides/grind-size): Which grind to use for each brew method.
+
+## Company
+
+- [About us](https://www.example.com/about): Who we are and where we roast.
+- [FAQ](https://www.example.com/faq): Shipping, returns and pricing.
+
+## Optional
+
+- [Blog archive](https://www.example.com/blog): Older articles and news.
+```
+
+The "Optional" section marks links an AI tool can skip if it needs a shorter summary.
+
+## How to create an llms.txt file
+
+You can create an llms.txt file in about two minutes. Follow these steps:
+
+1. Open the free [llms.txt generator](/tools/llms-txt-generator) and enter your site name, summary and key pages.
+2. Save the result as a file named `llms.txt`.
+3. Upload it to the root folder of your site, next to robots.txt.
+4. Visit `yourdomain.com/llms.txt` in your browser to make sure it loads.
+5. Update it when you add or remove important pages.
+
+Keep the summary factual and specific. Use the same name and description you use everywhere else, so AI tools see a consistent picture of your brand.
+
+## What matters more than llms.txt
+
+Three things do far more for your AI visibility than llms.txt. Fix these first.
+
+### robots.txt access
+
+AI tools can't cite pages their bots can't read. Make sure your robots.txt allows search bots like OAI-SearchBot, ChatGPT-User, PerplexityBot and Claude-SearchBot. Ahrefs found that about 5.9% of 140 million websites block GPTBot, often by accident. Test your site with the [AI crawler checker](/tools/ai-crawler-checker), and read our guide to [robots.txt for AI crawlers](/learn/robots-txt-ai-crawlers) for copy-paste rules.
+
+### Content in the HTML
+
+ChatGPT's crawler does not run JavaScript, according to Ahrefs. If your text only appears after JavaScript loads, ChatGPT may see an empty page. Use server-side rendering so your content is in the HTML from the start.
+
+### Brand mentions
+
+Mentions on other sites are the strongest signal for AI visibility. In an Ahrefs study of 75,000 brands, branded web mentions had a 0.664 correlation with showing up in Google AI Overviews. That beat backlinks and domain rating. Our guide on [how to rank in ChatGPT and AI search](/learn/how-to-rank-in-chatgpt) shows how to earn them.
+
+[The free {site.name} audit](/) checks AI crawler access, JavaScript rendering and schema, then writes the fixes. Those checks feed the {site.brand} AI Visibility Score, so you can see what to fix first.
+
+## FAQ
+
+### Is llms.txt the same as robots.txt?
+
+No. robots.txt tells bots which pages they may or may not crawl. llms.txt is a Markdown summary of your site with links to key pages. It doesn't allow or block any bot.
+
+### Will adding llms.txt hurt my SEO?
+
+There is no sign that it does. The Ahrefs AEO course says it probably won't hurt you. Google hasn't adopted llms.txt, so you shouldn't expect it to change your Google rankings in either direction.
+
+### Where do I put my llms.txt file?
+
+Put it in the root folder of your site, so it loads at `yourdomain.com/llms.txt`. That is the same place robots.txt lives. If your site has subdomains, each subdomain would need its own file.
+
+### Should I add llms.txt if no one uses it yet?
+
+You can, as long as it doesn't take time away from bigger wins. It takes minutes with a generator and does no harm. Just don't expect it to change your AI visibility on its own.

@@ -1,0 +1,120 @@
+import { site } from "~/config/site";
+
+AEO (answer engine optimization) is the practice of getting your brand mentioned and cited in AI answers from ChatGPT, Perplexity, Gemini, Google AI Overviews and Google AI Mode. In classic SEO, you compete for a position in a list of links. In AEO, you compete for a mention inside one AI-written answer.
+
+## AEO, GEO and LLMO mean the same thing
+
+AEO, GEO and LLMO are three names for one practice. AEO stands for answer engine optimization. GEO stands for generative engine optimization. LLMO stands for large language model optimization. All three mean making your content visible and useful to AI systems that write direct answers.
+
+The big difference from SEO is the shape of the result. In Google's classic results, a searcher sees a list of blue links, picks one and clicks. In an AI answer, there is no list. The AI reads many sources, writes one answer and decides which brands to name and which pages to cite.
+
+## SEO is the foundation of AEO
+
+AEO does not replace SEO. It builds on top of it. The Ahrefs AEO course says it plainly: SEO is the foundation of AEO. Quality content, authority and technical health still decide most of the outcome.
+
+The data backs this up. Ahrefs found that 76% of Google AI Overview citations came from pages already in Google's top 10, though a more recent study puts that figure closer to 38%. The Surfer SEO course adds that ChatGPT uses Bing's index when it searches the web. If your site does not show up in Google or Bing, it is likely invisible to AI assistants too. If you are new to the basics, start with [what SEO is and how search engines work](/learn/what-is-seo).
+
+## How AI search finds information
+
+AI search tools get their information from two places: training data and real-time retrieval. Each one needs a different approach.
+
+### Training data
+
+Training data is the huge body of text a model learned from. It includes websites, books, PDFs, social media and YouTube transcripts. It is a snapshot, and it only gets refreshed every few months. If you launched a product last week, the model does not know about it from training data.
+
+To show up here, your brand needs to be mentioned widely across the web. Every mention on a credible site teaches the model to link your brand with a topic.
+
+### Real-time retrieval (RAG)
+
+Real-time retrieval is when the AI searches the web while it writes the answer. This is called retrieval-augmented generation, or RAG. ChatGPT search, Perplexity and Google AI Mode fetch pages, read them and build an answer from what they found.
+
+To show up here, your pages must rank in search and be readable by AI crawlers. That is classic SEO plus a few technical checks, like letting AI bots in through your robots.txt file. Our guide to [robots.txt rules for AI crawlers](/learn/robots-txt-ai-crawlers) covers the exact rules.
+
+## Query fan-out: one prompt becomes many searches
+
+Query fan-out means an AI tool splits one prompt into many smaller searches. A prompt like "Plan me a 5-day trip to Japan in November" might turn into searches for the best Tokyo neighborhoods, November weather in Kyoto and whether the Japan Rail Pass is worth it. The AI runs these searches in the background. Then it merges the results into one answer.
+
+Research cited in the Ahrefs AEO course found that the average prompt triggers 9 to 11 fan-out queries, and some trigger as many as 28. Ahrefs also found that over 95% of fan-out queries have zero search volume, because real people never type them.
+
+This changes how you plan content. You can't optimize one page for one keyword and stop there. You need to cover the whole topic, so your pages answer the sub-questions the AI asks.
+
+## Why AI citations are probabilistic
+
+AI citations are not fixed rankings. Ask ChatGPT the same question five times, and you might be cited three times out of five. Patrick Stox of Ahrefs describes AI outputs as probabilities on top of probabilities on top of probabilities. That is why people talk about AI visibility instead of AI rankings.
+
+Some patterns still raise your odds of being cited:
+
+- **Consensus.** When many sources say the same thing about your brand, AI is more likely to repeat it.
+- **Freshness.** Ahrefs found that content cited by AI is about 25.7% fresher than content in traditional search results.
+- **Authority.** Pages that already rank well in Google have a head start. But Ahrefs also found that 14% of pages cited in AI Overviews don't rank in Google's top 100 at all.
+
+## How AI platforms differ
+
+Each AI platform has its own sources and its own preferences. Ahrefs looked at the 50 most cited domains across Google AI Overviews, ChatGPT and Perplexity. Only seven appeared on all three, a 14% overlap.
+
+| Platform | What it tends to cite |
+| --- | --- |
+| Google AI Overviews | Established, authoritative sites, plus YouTube and Reddit. YouTube is about 5.6% of all AI Overview citations. |
+| Google AI Mode | YouTube most of all, then Google and Wikipedia. It cites Quora 3.5 times more often than AI Overviews. |
+| ChatGPT | High-authority publishers and media, such as Reddit, Wikipedia, Amazon and Forbes. The median domain rating of its top cited pages is 90. |
+| Perplexity | The closest match to Google. About 28.6% of its citations come from Google's top 10, versus 8–10% for ChatGPT. |
+
+Google AI Overviews and Google AI Mode are both Google products, but they cite different pages. Ahrefs found their citation overlap is only 13.7%, even though their answers are 86% semantically similar.
+
+## The three types of AI visibility
+
+AI visibility comes in three types, and only one of them sends a click.
+
+1. **Cited and linked.** The AI names your page as a source and links to it. This sends direct traffic, and it is the easiest type to measure.
+2. **Mentioned but not linked.** The AI names your brand but gives no link. The user now knows your name and may search for it later. Think of it as word of mouth at scale.
+3. **Invisible.** The AI does not mention you at all. You can't fix this until you know it is happening.
+
+Links are rarer than most people expect. Ahrefs found that only about 28% of AI mentions include a link. The rate changes by platform: about 51.6% on Perplexity, 36.8% on Google AI Mode, 26.9% on ChatGPT and 10.7% on Google AI Overviews.
+
+## Brand mentions are the strongest signal
+
+Branded web mentions have the strongest link to AI visibility of any factor Ahrefs studied. In an Ahrefs study of 75,000 brands, branded web mentions had a 0.664 correlation with showing up in Google AI Overviews. That beat backlinks, domain rating and referring domains.
+
+Where you get mentioned matters too. Ahrefs found that mentions on highly linked pages had a 0.7 correlation with appearing in AI Overviews. YouTube mentions had a 0.737 correlation with ChatGPT visibility.
+
+Unlinked mentions still count. Language models learn by reading the web. Each time your brand appears next to a topic on a credible site, the model sees one more example of that pairing. Over time, it names you with more confidence.
+
+## How to measure AEO
+
+You can measure AEO in three ways: AI referral traffic, AI bot activity and self-reported attribution. No single method shows the full picture, so use all three.
+
+### AI referral traffic
+
+AI referral traffic is visits from links in ChatGPT, Perplexity, Gemini, Claude and Copilot. In GA4, create a custom channel group called "AI traffic." Match sources like `chatgpt.com`, `perplexity`, `gemini.google.com`, `copilot.microsoft.com` and `claude.ai`. Treat the result as an undercount. Some AI apps strip referral data, so those visits show up as direct traffic.
+
+### AI bot activity
+
+AI bot activity shows which pages AI crawlers read. Training bots like GPTBot collect content to train models. Search bots like OAI-SearchBot and ChatGPT-User fetch pages to answer live questions. Your server logs or a Cloudflare bot report show which pages these bots visit most. Pages that search bots hit often are likely being used as sources.
+
+### "How did you hear about us?"
+
+Self-reported attribution catches the visits your analytics miss. Many people hear your name in ChatGPT, then type your URL or Google your brand. Add a "How did you hear about us?" question to your signup or checkout flow. Include options like ChatGPT, Perplexity and Google AI Overviews. Ahrefs found that around 3% of its conversions came from AI this way.
+
+## Where to start with AEO
+
+Start by making sure AI tools can reach and read your site. Check that robots.txt allows AI search bots, that your main content is in the HTML and not only built by JavaScript, and that your key pages are fresh. You can test bot access in seconds with the [AI crawler checker](/tools/ai-crawler-checker).
+
+[The free {site.name} audit](/) checks AI crawler access, JavaScript rendering and schema, then writes the fixes. It rolls those checks into the {site.brand} AI Visibility Score, so you can see where you stand. For the full playbook, read [how to rank in ChatGPT and AI search](/learn/how-to-rank-in-chatgpt).
+
+## FAQ
+
+### Is AEO different from SEO?
+
+AEO builds on SEO rather than replacing it. SEO aims for a high position in a list of links. AEO aims for a mention or citation inside an AI answer. Most AEO work, like quality content, authority and technical health, is also good SEO.
+
+### Is AEO the same as GEO?
+
+Yes. AEO (answer engine optimization), GEO (generative engine optimization) and LLMO (large language model optimization) describe the same practice. Each one means making your brand visible in AI-generated answers.
+
+### Can I see the fan-out queries AI uses?
+
+Partly. Ahrefs Brand Radar shows fan-out queries for ChatGPT and Perplexity prompts. But the same prompt can trigger different fan-outs each time, and Ahrefs found over 95% have zero search volume. Use them as a guide to which subtopics matter, not as a keyword list.
+
+### Is AI search traffic worth it if it is small?
+
+AI traffic is small, but it converts well. Ahrefs found that AI referral traffic is about 0.25% of a typical site's traffic. Yet at Ahrefs, AI search made up 0.5% of traffic and drove 12.1% of signups. AI visitors often arrive already knowing why you might be a good fit.

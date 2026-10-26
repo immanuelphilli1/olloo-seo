@@ -1,0 +1,300 @@
+import { site } from "~/config/site";
+
+Schema markup is code that tells search engines exactly what your page is about, such as a business, a product or an article. The easiest way to add it is JSON-LD, a small block of code in your page's HTML. Copy the examples below, swap in your own details, and test them with Google's Rich Results Test before you publish.
+
+## What is schema markup?
+
+Schema markup is structured data that labels the things on your page in a standard vocabulary. That vocabulary comes from schema.org, a project backed by the major search engines. It gives every kind of thing a name, such as Organization, Product or Article, plus a set of properties, such as name, price or author.
+
+Search engines read text well, but they still have to guess. Schema removes the guessing. It says "this number is a price" or "this name is the author".
+
+The Ahrefs SEO course describes schema as code that helps search engines understand your content and show it better in search results. Its example is recipe schema. Pages that use it can show the recipe's rating, the number of votes, the total cooking time and nutrition facts right in Google. These enhanced listings are called rich results.
+
+## Why JSON-LD is the best format
+
+JSON-LD is the schema format Google recommends. It sits in its own script block, apart from your visible content. That makes it easy to add, edit and remove without touching your design.
+
+Every JSON-LD block goes inside a script tag like this, usually in the page's head:
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Example Coffee Co."
+}
+</script>
+```
+
+The `@context` line says you are using the schema.org vocabulary. The `@type` line names the kind of thing. Everything else describes it. In the examples below, replace every example.com URL and every sample value with your own.
+
+## Which schema types matter most
+
+Most sites only need a few schema types. Pick the ones that match what each page really is.
+
+| Schema type | Use it on | What it helps with |
+|---|---|---|
+| Organization | Home page or About page | Your brand name, logo and official profiles |
+| WebSite | Home page | Your site name in search results |
+| Article | Blog posts and news | Headline, author and dates |
+| Product | Product pages | Price, stock and ratings |
+| LocalBusiness | Pages for a physical location | Address, phone and opening hours |
+| FAQPage | Pages with a visible FAQ | Questions and answers |
+| BreadcrumbList | Any page with breadcrumbs | The page's place in your site |
+
+Only mark up content that visitors can see on the page. Google's guidelines say structured data must match the visible content.
+
+## Organization schema example (with sameAs)
+
+Organization schema tells search engines who is behind your website. The `sameAs` property lists your official profiles on other sites. This links your website to your brand's other accounts, so machines can tell they are the same entity.
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Example Coffee Co.",
+  "url": "https://www.example.com",
+  "logo": "https://www.example.com/logo.png",
+  "description": "Specialty coffee roaster shipping fresh beans across the US.",
+  "email": "hello@example.com",
+  "sameAs": [
+    "https://www.instagram.com/examplecoffee",
+    "https://www.linkedin.com/company/examplecoffee",
+    "https://www.youtube.com/@examplecoffee"
+  ]
+}
+```
+
+Only list profiles you own and keep active. Add this block once, on your home page or About page.
+
+## WebSite schema example
+
+WebSite schema tells Google the name of your site. Google can use it to show your site name in search results instead of your domain.
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Example Coffee Co.",
+  "url": "https://www.example.com"
+}
+```
+
+Add it to your home page only. Use the same name everywhere, including your title tags and Organization schema.
+
+## Article schema example
+
+Article schema describes a blog post or news story. It tells search engines the headline, the author, the image and when the page was published and updated.
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Brew Pour-Over Coffee at Home",
+  "image": "https://www.example.com/images/pour-over.jpg",
+  "datePublished": "2026-10-01",
+  "dateModified": "2026-10-20",
+  "author": {
+    "@type": "Person",
+    "name": "Jane Doe",
+    "url": "https://www.example.com/about/jane-doe"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Example Coffee Co.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.example.com/logo.png"
+    }
+  }
+}
+```
+
+Name a real author and link to their bio page. Change `dateModified` only when you make real updates to the content.
+
+## Product schema example
+
+Product schema describes something you sell. It can show the price, whether it is in stock and the average rating in search results.
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Ethiopia Yirgacheffe Whole Bean Coffee, 12 oz",
+  "image": "https://www.example.com/images/yirgacheffe.jpg",
+  "description": "Light roast with notes of lemon, jasmine and honey.",
+  "sku": "ETH-YIR-12",
+  "brand": {
+    "@type": "Brand",
+    "name": "Example Coffee Co."
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.example.com/coffee/yirgacheffe",
+    "priceCurrency": "USD",
+    "price": "18.00",
+    "availability": "https://schema.org/InStock"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "reviewCount": "86"
+  }
+}
+```
+
+Only include `aggregateRating` if real customer reviews appear on the page. Keep the price and stock status in sync with what shoppers see.
+
+## LocalBusiness schema example
+
+LocalBusiness schema describes a business with a physical location. It covers the address, phone number, opening hours and map position. You can use a more specific type, such as `CafeOrCoffeeShop`, `Dentist` or `Plumber`, when one fits.
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "CafeOrCoffeeShop",
+  "name": "Example Coffee Co. – Main Street",
+  "image": "https://www.example.com/images/main-street-cafe.jpg",
+  "url": "https://www.example.com/locations/main-street",
+  "telephone": "+1-555-010-0199",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Main Street",
+    "addressLocality": "Portland",
+    "addressRegion": "OR",
+    "postalCode": "97201",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 45.5152,
+    "longitude": -122.6784
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "07:00",
+      "closes": "18:00"
+    }
+  ]
+}
+```
+
+Make the name, address and phone number match your Google Business Profile exactly. Use one block per location, on that location's page.
+
+## FAQPage schema example
+
+FAQPage schema marks up a list of questions and answers that appear on the page. Google now shows FAQ rich results only for a small set of well-known government and health sites. Even so, the markup still describes your content clearly to machines.
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long do coffee beans stay fresh?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Whole beans taste best within a few weeks of roasting. Store them in an airtight container away from light and heat."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you ship internationally?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We currently ship to all 50 US states. International shipping is not available yet."
+      }
+    }
+  ]
+}
+```
+
+The questions and answers must match the FAQ that visitors can read on the page, word for word.
+
+## BreadcrumbList schema example
+
+BreadcrumbList schema shows where a page sits in your site's structure. Google can show this trail in search results instead of a long URL.
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.example.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Coffee",
+      "item": "https://www.example.com/coffee/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Ethiopia Yirgacheffe",
+      "item": "https://www.example.com/coffee/yirgacheffe"
+    }
+  ]
+}
+```
+
+The trail should match the breadcrumb links shown on the page and your real site structure.
+
+## How to add schema markup to your site
+
+You can add schema by hand, with a plugin or with a generator. Pick the option that fits how your site is built.
+
+- **WordPress:** plugins such as Rank Math and Yoast add common schema types for you. The Ahrefs SEO course recommends both.
+- **Shopify and other platforms:** most themes include Product schema. Check what is already there before you add more, so you do not create duplicates.
+- **Custom sites:** paste the JSON-LD block into the page's head or body.
+- **Generators:** the free [{site.name} schema markup generator](/tools/schema-markup-generator) builds valid JSON-LD from a simple form.
+
+Not sure which pages are missing schema? [The free {site.name} audit](/) checks for structured data and writes the code you need. For other behind-the-scenes fixes, see our [technical SEO checklist](/learn/technical-seo-checklist).
+
+## How to test your schema markup
+
+Always test schema before and after you publish. A small typo, like a missing comma, can break the whole block.
+
+1. **Google Rich Results Test** (search.google.com/test/rich-results) shows which rich results your page can get. It also flags errors and warnings.
+2. **Schema Markup Validator** (validator.schema.org) checks your code against the full schema.org vocabulary, including types Google does not use for rich results.
+3. **Google Search Console** shows structured data reports for your whole site under Enhancements. Check them after you publish to catch errors across many pages.
+
+Fix every error. Warnings mean an optional property is missing, so add it if you have the information.
+
+## Does schema markup help with AI search?
+
+The honest answer is that the evidence is mixed. In its AEO course, Ahrefs says there is no confirmed data that adding schema directly increases your chances of being cited by AI. It also says schema does not hurt, and there is no reason to remove it if you use it for SEO.
+
+Schema still has clear benefits. It can earn rich results in Google. It describes your business, products and authors in a format any machine can read. The Surfer SEO course lists schema markup among the things that help both Google rankings and AI visibility.
+
+That is why structured data is one input to the {site.brand} AI Visibility Score, alongside AI crawler access and content structure. But treat schema as a good habit, not a magic trick for AI. Add the right types when you build a page. Then spend most of your AI search effort on content, brand mentions and crawler access. Our guide to [what AEO is](/learn/what-is-aeo) covers what matters most, and the [AI crawler checker](/tools/ai-crawler-checker) shows whether AI bots can reach your pages at all.
+
+## FAQ
+
+### Is schema markup a Google ranking factor?
+
+Schema is not a direct ranking factor. It helps Google understand your page and can earn rich results, such as star ratings and prices. Those richer listings can make your result stand out in search.
+
+### What is the difference between schema markup and JSON-LD?
+
+Schema markup is the vocabulary, defined at schema.org. JSON-LD is one format for writing that vocabulary into your page. Google recommends JSON-LD because it sits in its own script block and is easy to maintain.
+
+### Can I use more than one schema type on a page?
+
+Yes. A product page can have Product, BreadcrumbList and Organization schema together. You can use separate script blocks or combine them in one block with an `@graph` list.
+
+### Why is my schema valid but not showing rich results?
+
+Valid schema makes a page eligible for rich results, but it does not guarantee them. Google decides when to show them. Some types, like FAQ rich results, are now limited to a small set of sites.
+
+### Does schema markup help me show up in ChatGPT?
+
+There is no confirmed data that it does. Ahrefs describes the evidence as mixed. Schema helps machines understand your content, so it is worth adding, but it is not a substitute for strong content and brand mentions.

@@ -1,0 +1,111 @@
+import { site } from "~/config/site";
+
+To rank in ChatGPT and other AI search tools, you need two things. AI crawlers must be able to find and read your pages, and other trusted sites must talk about your brand. The nine steps below cover both, starting with the fixes that take minutes.
+
+"Ranking" in ChatGPT really means being mentioned or cited in its answers. There is no fixed position one. AI answers change from run to run, so the goal is to raise the odds that your brand appears. Our guide to [what AEO is and how AI search works](/learn/what-is-aeo) explains why.
+
+## 1. Let AI crawlers into your site
+
+AI tools can't cite pages their crawlers are blocked from reading. Your robots.txt file tells bots which pages they may crawl. For ChatGPT, the bots that matter most are OAI-SearchBot and ChatGPT-User. For other platforms, they include PerplexityBot, Claude-SearchBot, Googlebot and Bingbot.
+
+Many sites block AI bots by accident. Ahrefs found that about 5.9% of 140 million websites block GPTBot, OpenAI's crawler. Some blocks come from old templates. Others come from platforms. Cloudflare, for example, has a setting called "Instruct AI bot traffic with robots.txt" that is now on by default. It updates your robots.txt to tell AI bots not to use your content for training.
+
+Open `yourdomain.com/robots.txt` and look for `Disallow` rules under GPTBot, OAI-SearchBot, ClaudeBot or Google-Extended. Or run your domain through the [free AI crawler checker](/tools/ai-crawler-checker). For copy-paste rules, see our guide to [robots.txt for AI crawlers](/learn/robots-txt-ai-crawlers).
+
+## 2. Serve your content as HTML, not JavaScript only
+
+ChatGPT's crawler does not run JavaScript, so text that only appears after JavaScript runs is invisible to it. According to Ahrefs, Gemini and Copilot can render JavaScript, but ChatGPT's crawler cannot. If your site is a single-page app built with React or Angular, ChatGPT may see an empty shell.
+
+The fix is server-side rendering. Your server sends the full HTML, and the crawler reads it without running any code. To test your site, turn off JavaScript in your browser and reload a page. If the text disappears, AI crawlers likely can't see it either.
+
+Speed matters too. AI tools fetch pages on the fly while they write an answer. Ahrefs notes that a slow page can be dropped before it is ever scored, even if the content is great.
+
+## 3. Rank in Google and Bing first
+
+Classic search rankings feed AI answers, so SEO comes before AEO. According to the Surfer SEO course, ChatGPT uses Bing's index when it searches the web. Perplexity runs its own crawler but still leans heavily on Bing's index. If your page is not in Google or Bing, it is likely invisible to AI assistants too.
+
+Google rankings matter for Google AI Overviews and Perplexity. Ahrefs found that 76% of AI Overview citations came from pages in Google's top 10, though a newer study puts it closer to 38%. Ahrefs also found that about 28.6% of Perplexity citations come from Google's top 10.
+
+Do two things this week. Verify your site in both Google Search Console and Bing Webmaster Tools. Then submit your XML sitemap to both. After that, work through our [technical SEO checklist](/learn/technical-seo-checklist) to fix crawling and indexing problems.
+
+## 4. Write answer-first, atomic, entity-rich content
+
+AI tools cite content that answers the question clearly and fast. You don't need a special AI format. You need content that is easy for people and machines to read. The Ahrefs AEO course names four principles.
+
+### Bottom line up front (BLUF)
+
+Start every section with the answer, not the backstory. Ahrefs notes that language models weigh the start and end of a passage more than the middle. If your key point is buried three paragraphs down, AI may miss it.
+
+### Atomic sections
+
+Make every section stand on its own. AI systems split pages into chunks, and you can't control where the cuts fall. Test it by reading any H2 section out of context. If it doesn't make sense alone, rewrite it.
+
+### Entity-rich writing
+
+Name specific things. AI understands text through entities like brands, products, people and places. "This tool helps with SEO" is vague. "Ahrefs Keywords Explorer finds keywords with low difficulty" gives AI something concrete to cite.
+
+### Simple, declarative sentences
+
+Use short sentences with one idea each. Stick to subject, verb, object. If a sentence needs two reads, split it.
+
+Length is not a factor. Ahrefs analyzed over 174,000 pages cited in AI Overviews and found a 0.04 correlation between word count and being cited. That is basically zero. Over half of cited pages (53.4%) had fewer than 1,000 words. Our [on-page SEO checklist](/learn/on-page-seo-checklist) covers headings and page structure in more detail.
+
+## 5. Cover the whole topic for query fan-out
+
+AI tools break one prompt into many sub-searches, so you need to cover a full topic, not one keyword. This is called query fan-out. Research cited by Ahrefs found that the average prompt triggers 9 to 11 fan-out queries, and some trigger 28.
+
+Say your guide to starting a podcast skips equipment, hosting and promotion. The AI will find a page that covers them instead. Build topic clusters: the definition, the how-to, the comparison and the deep dive, all linked together. Start with [keyword research](/learn/keyword-research) to map the subtopics your audience cares about.
+
+## 6. Keep your content fresh
+
+AI tools favor recently updated pages. Ahrefs found that AI-cited content is 25.7% fresher on average than what ranks in classic search. For ChatGPT, 89.7% of its top cited pages were updated in 2025, and 76% were refreshed within the last 30 days.
+
+Don't just change the date. Make real updates, like new stats, current examples and corrected facts. A good place to start is your "sleeper pages." These are pages that used to rank, still have backlinks and have slowly lost traffic. A real refresh can bring them back fast.
+
+## 7. Get your brand onto listicles and comparison pages
+
+Listicles and comparison pages make up a large share of what AI cites. Ahrefs found that 43.8% of pages cited by ChatGPT are listicles, such as "best X," "top X" and "X vs Y" pages. These pages help AI build consensus. If many lists recommend you, AI is more likely to recommend you too.
+
+Find "best" and "vs" articles in your niche that mention competitors but not you. Favor pages with lots of backlinks, even if AI doesn't cite them yet. Then reach out to the authors with a clear reason to include you. You can also publish your own fair, specific comparison pages.
+
+## 8. Earn mentions on Reddit, YouTube and publications
+
+Mentions on other sites are the strongest signal for AI visibility. In an Ahrefs study of 75,000 brands, branded web mentions had a 0.664 correlation with appearing in Google AI Overviews. That was stronger than backlinks or domain rating.
+
+Focus on three places:
+
+- **Publications and review sites.** ChatGPT leans on high-authority publishers. Ahrefs found the median domain rating of ChatGPT's top cited pages is 90.
+- **Reddit and forums.** Reddit is one of ChatGPT's most cited sources and a core source of AI training data. Answer real questions where your product truly fits. Never spam threads with your brand name.
+- **YouTube.** YouTube is the most cited domain in Google AI Overviews. Ahrefs found YouTube mentions had a 0.737 correlation with ChatGPT visibility. Put the keyword in your video title, write a real description, add timestamps and say the keyword out loud in the video.
+
+## 9. Name your frameworks and fill gaps with an official FAQ
+
+AI tends to absorb original ideas without credit unless your brand name is attached. If you invent a method and call it a "content scoring matrix," AI may treat it as general knowledge. Put your brand in the name instead. That is why we call our metric the {site.brand} AI Visibility Score, not just an "AI visibility score." Define your framework clearly. Then share it on your blog, social channels, podcasts and Reddit.
+
+Next, fill every gap in what the web says about your brand. Ahrefs tested this by creating a fake brand and planting conflicting stories about it. Gemini and Perplexity repeated the false claims in 37–39% of their answers. ChatGPT stayed under 7% and cited the brand's official FAQ in 84% of its answers. Ahrefs' takeaway: when AI must choose between a vague truth and a specific fiction, it tends to pick the fiction. So publish an official FAQ page with specific facts, numbers and dates.
+
+## How to check your visibility in ChatGPT
+
+You can check your AI visibility for free with a handful of prompts. Open ChatGPT in an incognito or private browser window, so it can't lean on your history or preferences. Ask the questions your buyers ask, such as "What's the best proposal software for agencies?" Note which brands appear, which pages get cited and whether you show up at all.
+
+Run each prompt several times, because answers change. Repeat the test in Perplexity, Gemini and Google AI Mode, since each platform cites different sources. Track the results in a spreadsheet every month. Ahrefs found that over 45% of AI Overview citations change when AI Overviews refresh, which happens about every two days on average.
+
+For the technical side, [run the free {site.name} audit](/). It checks AI crawler access, JavaScript rendering and schema. Then it gives you your {site.brand} AI Visibility Score and writes the fixes.
+
+## FAQ
+
+### Does ChatGPT use Google or Bing?
+
+According to the Surfer SEO course, ChatGPT uses Bing's index when it searches the web. That makes Bing Webmaster Tools worth setting up. You still need to rank in Google, because Google AI Overviews and Perplexity lean on Google rankings.
+
+### Should I block GPTBot?
+
+That is your choice, and it doesn't stop ChatGPT from citing you. GPTBot collects data for training OpenAI's models. OAI-SearchBot and ChatGPT-User power ChatGPT search. You can block GPTBot and still allow the search bots, so your pages can be cited without being used for training.
+
+### Does content length help you get cited?
+
+No. Ahrefs analyzed over 174,000 pages cited in AI Overviews and found almost no link between word count and citations. Over half of cited pages had fewer than 1,000 words. Focus on answering the question clearly instead.
+
+### Does llms.txt help you rank in ChatGPT?
+
+Probably not today. According to the Ahrefs AEO course, no major LLM provider has confirmed that it uses llms.txt. Adding one is harmless, but it is low priority. Read our [guide to llms.txt](/learn/llms-txt) for the full picture.

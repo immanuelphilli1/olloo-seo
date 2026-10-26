@@ -1,0 +1,3 @@
+## Interactive Guidelines
+- Never assume requirements for ambiguous tasks or large refactors. 
+- You MUST use the `AskUserQuestion` tool to conduct an in-depth technical interview. Ask non-obvious questions one at a time covering edge cases, data structures, UI/UX tradeoffs, and architecture. Continue for multiple rounds until you have completely eliminated ambiguity and confirm the implementation details before proposing a plan or writing code.

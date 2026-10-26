@@ -1,0 +1,185 @@
+import { site } from "~/config/site";
+
+This SEO checklist gives you 35 steps to rank in Google and show up in AI search, in the order that gets results fastest. Start with setup and keywords, then fix each page, then the technical basics, then links and AI search. Work through one section at a time and come back to it every few months.
+
+## Setup and basics (steps 1–5)
+
+The first five steps give you the free tools and the baseline you need before changing anything. Skip them and you will not know what is working.
+
+### 1. Set up Google Search Console
+
+Google Search Console is free and shows how Google sees your site. It lists the searches that bring you visitors, the pages Google has indexed and any errors it found. Verify your site and submit your sitemap here.
+
+### 2. Set up Bing Webmaster Tools
+
+Bing Webmaster Tools does the same job for Bing. This matters for AI search too. According to Surfer's SEO course, ChatGPT uses Bing's index when it searches the web.
+
+### 3. Install an SEO plugin if you use WordPress
+
+Yoast or Rank Math handle the basics for you. They let you edit titles and meta descriptions, create an XML sitemap and add schema markup without code.
+
+### 4. Run a baseline audit
+
+An audit shows what is broken before you start. [The free {site.name} audit](/) checks your site for Google and AI search issues and writes the exact fix for each one. Note your {site.brand} SEO Score so you can track progress.
+
+### 5. Identify your money pages
+
+Money pages are the pages that turn visitors into customers, like product, service or pricing pages. List them. If a key money page does not exist yet, make it a priority. Every other page you build should link back to these.
+
+## Keyword research (steps 6–11)
+
+Keyword research tells you what your customers actually type into search, so you build pages people want. Use a tool such as Ahrefs Keywords Explorer or the free Ahrefs Keyword Generator. Our full guide to [keyword research for beginners](/learn/keyword-research) goes deeper.
+
+### 6. List your seed keywords
+
+Seed keywords are broad terms for your niche. A golf site might start with "golf balls," "golf clubs" and "golf hats." Put them into your keyword tool to get thousands of ideas.
+
+### 7. Add modifiers to find the right intent
+
+Modifiers are words added to a seed, like "best," "top," "vs," "review," "how" or "what." "Best" signals a comparison. "How" signals a tutorial. Modifiers help you find keywords that fit the pages you can create.
+
+### 8. Check traffic potential, not just search volume
+
+Search volume counts searches, not clicks. Look at how much traffic the top page gets instead. An Ahrefs study of 3 million keywords found the top-ranking page also ranks for nearly 1,000 other keywords in the top 10. A topic can be worth far more than its main keyword suggests.
+
+### 9. Score business potential
+
+Give each keyword a score from 0 to 3. A 3 means your product is the natural answer. A 0 means it has nothing to do with what you sell. Focus on 2s and 3s first.
+
+### 10. Check search intent with the 3 C's
+
+Google your keyword and look at the top results. Note the content type (blog post, product page, tool), the content format (how-to, list, review) and the content angle (for beginners, cheap, this year). If you cannot create that kind of page, pick a different keyword. Our guide to [search intent](/learn/search-intent) explains the 3 C's in detail.
+
+### 11. Judge whether you can rank
+
+Look at who you are up against. Check how many referring domains the top pages have, how strong their sites are and whether they focus on your topic. If several smaller, focused sites rank, you have a real chance.
+
+## On-page SEO (steps 12–19)
+
+On-page SEO means making each page the best answer for its keyword. Matching intent matters most. The tags and links are the finishing touches. See the full [on-page SEO checklist](/learn/on-page-seo-checklist) for examples.
+
+### 12. Match the dominant content type, format and angle
+
+Build the kind of page that already ranks. If the top results are list posts with the current year in the title, write a list post and keep it current.
+
+### 13. Cover the subtopics searchers expect
+
+Open the top three relevant results and note the subtopics they all cover. Include those points, then add something they missed. Write in short sentences and short paragraphs.
+
+### 14. Put your keyword in the title tag
+
+Use your target keyword, or a close variant, in the title when it reads naturally. Each page needs its own unique title.
+
+### 15. Write a meta description
+
+Write a short summary that makes people want to click. It is not a ranking signal, but it can affect clicks. An Ahrefs study of 192,000 pages found Google rewrote meta descriptions nearly 63% of the time, so write one but do not overthink it.
+
+### 16. Use a short, descriptive URL slug
+
+Use your keyword with hyphens, like `/best-golf-balls`. Short URLs tell people what the page is about before they click.
+
+### 17. Use one H1 and clear subheadings
+
+Give the page one H1 for the title. Use H2s for main sections and H3s for sub-sections. Make each subheading describe what follows.
+
+### 18. Add internal links to and from the page
+
+Link to the new page from related pages on your site, and link out from it to related pages. Internal links pass authority and help search engines understand what the page is about. Search Google for `site:yourdomain.com topic` to find good pages to link from.
+
+### 19. Optimize your images
+
+Give each image a descriptive file name, like `puppy.jpg` instead of `IMG_4821.jpg`. Add alt text that describes the image. Compress images with a tool like ShortPixel so pages load faster.
+
+## Technical SEO (steps 20–26)
+
+Technical SEO makes sure search engines can find, crawl and index your pages. If a page is not indexed, nothing else on this list matters. The [technical SEO checklist](/learn/technical-seo-checklist) covers each step in more depth.
+
+### 20. Remove stray noindex tags
+
+A `noindex` meta tag tells search engines to keep a page out of their index. Web designers often add it during development and forget to remove it at launch. Check your key pages for it.
+
+### 21. Check your robots.txt file
+
+Your robots.txt file lives at `yourdomain.com/robots.txt` and tells crawlers where they can go. A single `Disallow: /` line under `User-agent: *` blocks your whole site. Make sure it does not block pages you want indexed.
+
+### 22. Submit an XML sitemap
+
+A sitemap lists your important URLs so crawlers find them faster. Yoast and Rank Math create one for you. Submit it in Google Search Console and Bing Webmaster Tools, and add it to robots.txt.
+
+### 23. Use HTTPS and one version of your site
+
+Your site should load on one version only, such as `https://yourdomain.com`. Redirect the HTTP and other versions to it with 301 redirects so signals are not split.
+
+### 24. Set canonical tags
+
+A canonical tag tells search engines which URL is the main version of a page. It helps when the same content is reachable at more than one address. Google may ignore it if it points to the wrong version.
+
+### 25. Fix broken links, orphan pages and redirect chains
+
+Broken pages that still have links pointing to them waste visits. Orphan pages have no internal links, so crawlers struggle to find them. Redirect chains slow everything down. Check any URL with the [redirect checker](/tools/redirect-checker).
+
+### 26. Make your pages load fast
+
+Page speed is a confirmed Google ranking factor for desktop since 2010 and for mobile since 2018. At minimum, turn on caching through your host and compress your images. Test pages in PageSpeed Insights and fix the slowest ones first.
+
+## Links and authority (steps 27–30)
+
+Links and mentions from other websites show Google and AI systems that your content is trusted. They are the hardest part of SEO, and among the most important.
+
+### 27. Know what makes a good link
+
+The best links come from relevant, authoritative pages, sit inside the main content and are followed (no `nofollow` attribute). Do not buy links. Buying links is against Google's guidelines and can get your pages penalized.
+
+### 28. Answer journalist requests
+
+Journalists look for expert sources every day. Services like Source of Sources and Featured.com send you their questions. Surfer's 30-day plan suggests spending 15 minutes a day answering them. If a journalist quotes you, they often link to your site.
+
+### 29. Pitch guest posts and personal outreach
+
+Find sites in your niche that accept guest writers. Write each pitch for that one site, explain why you are qualified and offer clear value. Keep the email short and aim to start a conversation, not to close a deal.
+
+### 30. Get mentioned on lists and in communities
+
+Brand mentions matter for AI search even without a link. In an Ahrefs study of 75,000 brands, branded web mentions had the strongest correlation with showing up in Google AI Overviews, stronger than backlinks. Aim to appear on "best" lists in your niche and give genuine answers on Reddit threads where your product fits.
+
+## AI search (steps 31–35)
+
+AI search optimization makes sure ChatGPT, Perplexity, Gemini and Google AI Overviews can read your site and choose to cite it. Most of it builds on the steps above. Our guide to [how to rank in ChatGPT](/learn/how-to-rank-in-chatgpt) covers it in full.
+
+### 31. Allow AI crawlers in robots.txt
+
+Check that GPTBot, OAI-SearchBot, ClaudeBot and Google-Extended are not blocked. Ahrefs data shows about 5.9% of 140 million websites block GPTBot. Some hosting and CDN settings, such as Cloudflare's AI bot option, can add blocks for you. Test your site with the [AI crawler checker](/tools/ai-crawler-checker).
+
+### 32. Make sure your content loads without JavaScript
+
+According to Ahrefs, ChatGPT's crawler does not render JavaScript. If your text only appears after scripts run, it may see an empty page. Turn off JavaScript in your browser and reload your page. If the content disappears, use server-side rendering.
+
+### 33. Write answer-first sections that stand alone
+
+Start each section with the answer, then add detail. Make every H2 section make sense on its own, because AI systems pull single sections. Name specific products, people and places instead of vague terms.
+
+### 34. Keep your key pages fresh
+
+Ahrefs found that content cited by AI is about 25.7% fresher than what ranks in normal search results. Update your top pages with new facts, examples and data. Do not just change the date.
+
+### 35. Track your AI visibility
+
+Ask ChatGPT and Perplexity the questions your customers ask, in a private browser window. Note which brands appear. Add a "how did you hear about us" question with AI options to your sign-up form. The {site.brand} AI Visibility Score in your audit gives you a quick check on the basics.
+
+## FAQ
+
+### How long does it take to work through this SEO checklist?
+
+Setup and the technical checks can take a few days for a small site. Keyword research, on-page work and links are ongoing. Surfer's 30-day plan covers setup, keywords, one money page and one topic cluster in the first month.
+
+### Which SEO checklist items matter most?
+
+Indexing and search intent come first. If Google cannot index a page, nothing else counts. If a page does not match what searchers want, it will not rank however well it is tagged.
+
+### Do I need paid tools to follow this checklist?
+
+No. Google Search Console, Bing Webmaster Tools, PageSpeed Insights and the free {site.name} audit cover most of the list. Paid tools like Ahrefs make keyword research and link analysis faster.
+
+### Is SEO for AI search different from SEO for Google?
+
+Mostly no. The same fundamentals help with both: clear content, trusted links and mentions, and a crawlable site. The extra AI steps are allowing AI crawlers, serving content as HTML, keeping pages fresh and tracking brand mentions.

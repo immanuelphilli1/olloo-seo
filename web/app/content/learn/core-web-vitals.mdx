@@ -1,0 +1,128 @@
+import { site } from "~/config/site";
+
+Core Web Vitals are three Google metrics that measure how fast, responsive and stable your pages feel to real visitors. A good page has a Largest Contentful Paint (LCP) of 2.5 seconds or less, an Interaction to Next Paint (INP) of 200 milliseconds or less and a Cumulative Layout Shift (CLS) of 0.1 or less. Fix your slowest pages first. You do not need to chase every millisecond.
+
+## What are Core Web Vitals?
+
+Core Web Vitals are the three metrics Google uses to judge page experience. Each one measures a different part of how a page feels:
+
+- **LCP** measures loading. How long until the main content appears?
+- **INP** measures responsiveness. How fast does the page react to a tap or click?
+- **CLS** measures visual stability. Does the layout jump around while it loads?
+
+Google measures these from real Chrome users visiting your site. Page experience is one of many signals Google uses to rank pages. To see where speed fits among other technical tasks, read our [technical SEO checklist](/learn/technical-seo-checklist).
+
+## Core Web Vitals thresholds: what counts as good
+
+Google sorts each metric into three bands: good, needs improvement and poor. A page passes when at least 75% of visits hit "good" on all three.
+
+| Metric | What it measures | Good | Needs improvement | Poor |
+|---|---|---|---|---|
+| LCP | Loading speed | 2.5 s or less | 2.5 s to 4 s | over 4 s |
+| INP | Responsiveness | 200 ms or less | 200 ms to 500 ms | over 500 ms |
+| CLS | Visual stability | 0.1 or less | 0.1 to 0.25 | over 0.25 |
+
+### Largest Contentful Paint (LCP)
+
+LCP is the time it takes for the largest image or text block on screen to load. On most pages, that is the hero image or the main headline. A slow LCP feels like a blank or half-built page.
+
+### Interaction to Next Paint (INP)
+
+INP measures the delay between a user's action and the page's visible response. It covers taps, clicks and key presses across the whole visit. INP replaced First Input Delay (FID) in March 2024.
+
+### Cumulative Layout Shift (CLS)
+
+CLS scores how much visible content moves unexpectedly. A classic example is a button that jumps down just as you tap it, because an ad loaded above it. CLS is a score, not a time, so lower is better.
+
+## Field data vs lab data
+
+Field data comes from real visitors. Lab data comes from a test run on a simulated device. Google uses field data, so that is the number that counts.
+
+**Field data** comes from the Chrome User Experience Report. It reflects real people on real phones and networks over the past 28 days. Small sites may not have enough visitors to get field data at all.
+
+**Lab data** comes from Lighthouse, which loads your page once under fixed conditions. It is instant and repeatable, so it is great for debugging. It cannot measure INP, because no real person is clicking.
+
+Use lab data to find and test fixes. Use field data to confirm they worked for real visitors.
+
+## How to check your Core Web Vitals
+
+You can check Core Web Vitals for free with two Google tools.
+
+1. **PageSpeed Insights** (pagespeed.web.dev). Enter any URL. The top section shows field data, if the page has enough traffic. The lower section shows Lighthouse lab data and a list of specific fixes.
+2. **Google Search Console.** Open the Core Web Vitals report. It groups your URLs into good, needs improvement and poor, for mobile and desktop. Start with the poor groups, since one fix often repairs many similar pages.
+
+Check mobile first, because phones are usually slower. [The free {site.name} audit](/) also flags slow pages and heavy files, and writes the fix for each one.
+
+## How to fix a slow LCP
+
+Most slow LCP scores come from a large hero image or a slow server. Work through these fixes in order:
+
+- **Compress your images.** Smaller files load faster. The Ahrefs SEO course recommends ShortPixel, which has a web tool and a WordPress plugin.
+- **Use modern formats.** WebP and AVIF files are usually much smaller than JPEG or PNG.
+- **Do not lazy-load the main image.** Lazy loading suits images lower on the page. On the hero image, it delays LCP.
+- **Preload the LCP image** so the browser fetches it early.
+- **Turn on caching.** The Ahrefs course notes that most web hosts offer caching, which serves stored copies of your files instead of building each page fresh.
+- **Use a CDN** such as Cloudflare to serve files from a server close to each visitor.
+- **Cut render-blocking code.** Remove unused CSS and JavaScript, and defer the rest.
+
+Here is a hero image set up to load fast. The width and height also prevent layout shift:
+
+```html
+<link rel="preload" as="image" href="/images/hero.webp" fetchpriority="high">
+
+<img src="/images/hero.webp" alt="Barista pouring latte art" width="1200" height="600" fetchpriority="high">
+```
+
+## How to fix a poor INP
+
+A poor INP almost always means too much JavaScript is running when someone tries to interact. The browser is busy, so it cannot respond. These fixes help most:
+
+- **Ship less JavaScript.** Remove plugins, widgets and libraries you do not need.
+- **Audit third-party scripts.** Chat widgets, ad scripts and trackers often block the browser. Keep only the ones that earn their place.
+- **Break up long tasks** so the browser can respond between them.
+- **Keep click handlers light.** Show a visual response first and do the heavy work after.
+
+On WordPress, a heavy page builder plus many plugins is a common cause. Test the page with plugins turned off to find the culprit.
+
+## How to fix a high CLS
+
+Most layout shift comes from content that loads without reserved space. Fix CLS by telling the browser how much room each item needs before it arrives:
+
+- **Set width and height on images and videos**, as in the example above.
+- **Reserve space for ads and embeds** with a fixed minimum height.
+- **Do not insert content above existing content.** Banners that push the page down cause big shifts. Overlay them instead.
+- **Load web fonts carefully.** Preload key fonts and pick a fallback font of similar size, so text does not jump when the font swaps in.
+
+## Why page speed matters for AI search too
+
+Page speed can matter even more for AI search than for Google rankings, according to the Ahrefs AEO course. When AI systems retrieve information in real time, they fetch, parse and split your page on the fly. If it takes too long to load, it can be dropped before it is even scored. Then it cannot appear in the AI answer, however good the content is.
+
+The same work helps both. Ahrefs notes that if you have already optimized your Core Web Vitals for SEO, you are most of the way there.
+
+Speed is not the only access issue. The same course notes that ChatGPT's crawler does not render JavaScript, so content that only loads through JavaScript can be invisible to it. Both factors feed into the {site.brand} AI Visibility Score. The [AI crawler checker](/tools/ai-crawler-checker) shows whether AI bots can reach your pages, and our guide on [how to rank in ChatGPT and AI search](/learn/how-to-rank-in-chatgpt) covers the rest.
+
+## How much does page speed affect rankings?
+
+Page speed is a confirmed ranking factor, but it mostly affects the slowest pages. The Ahrefs SEO course notes that speed has been a ranking factor for desktop search since 2010. In 2018, Google announced it would also use page speed in mobile rankings.
+
+Google's own words set the limit. It said the speed update "will only affect pages that deliver the slowest experience to users and will only affect a small percentage of queries." So going from fast to slightly faster rarely changes rankings. Going from very slow to acceptable can.
+
+Treat Core Web Vitals as a floor, not a race. Get your pages into the good band, then spend your time on content that matches [search intent](/learn/search-intent). A fast page that does not answer the question will not rank.
+
+## FAQ
+
+### What are the three Core Web Vitals?
+
+The three Core Web Vitals are Largest Contentful Paint (LCP), Interaction to Next Paint (INP) and Cumulative Layout Shift (CLS). LCP measures loading speed. INP measures how fast the page responds to clicks and taps, and CLS measures how much the layout shifts.
+
+### What is a good Core Web Vitals score?
+
+A good score is an LCP of 2.5 seconds or less, an INP of 200 milliseconds or less and a CLS of 0.1 or less. Google checks these at the 75th percentile of real visits. That means at least 75% of visits must hit each target.
+
+### Why is my PageSpeed Insights score different from Search Console?
+
+PageSpeed Insights shows lab data from a single test as well as field data from real users. Search Console uses only field data, grouped across similar URLs. The lab score can change on every run, while field data reflects the past 28 days.
+
+### How long does it take to see Core Web Vitals improvements?
+
+Lab scores in PageSpeed Insights change right away. Field data uses a rolling 28-day window, so it can take up to four weeks to fully reflect a fix. In Search Console, you can start a validation and it tracks the fix over that period.

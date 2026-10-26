@@ -1,0 +1,140 @@
+import { site } from "~/config/site";
+
+On-page SEO is making a single page the best answer for the search you want it to rank for. The most important step is matching search intent. After that, you write a clear title tag and meta description, structure your headings, add internal links and optimize your images. Use the checklist below on every page you publish or update.
+
+## What on-page SEO is (and what it is not)
+
+On-page SEO is the practice of optimizing a web page so it ranks higher in search engines. Ahrefs' SEO course says it revolves mostly around search intent. It also includes HTML tags like titles and meta descriptions.
+
+Old advice still causes confusion, so it helps to know what on-page SEO is not.
+
+- **It is not keyword stuffing.** Google understands synonyms and related words. Repeating "car dealer San Diego" in every sentence hurts readability.
+- **It is not hitting a keyword count.** An Ahrefs study of 3 million keywords found the top page ranks for nearly 1,000 other keywords in the top 10. No page could mention all of them three times.
+- **It is not a minimum word count.** Ahrefs' backlink checker page was 628 words and ranked number one for its keyword. Write as much as the topic needs and no more.
+
+## Match search intent first
+
+Matching search intent is the single most important on-page step. Search intent is the reason behind a search. If your page does not fit it, it will not rank, however well it is tagged.
+
+Google your target keyword and study the top results using the 3 C's:
+
+| The 3 C's | Question to ask | Example for "best golf shoes" |
+| --- | --- | --- |
+| Content type | Is it a blog post, product page, category page or tool? | Blog posts |
+| Content format | Is it a how-to, list, review or comparison? | List posts |
+| Content angle | What hook do the titles use? | Freshness (the current year) |
+
+Build the same type and format of page. Use a similar angle, or a better one. Our guide to [search intent](/learn/search-intent) walks through more examples.
+
+## Cover what searchers expect to see
+
+Your content must answer the questions searchers expect it to answer. The best way to learn what those are is to study the pages that already rank.
+
+1. Pick the top three results that match the dominant intent. Skip outliers, like a store page in a list of blog posts.
+2. Open each one and note the subtopics they all cover.
+3. Look at how they structure the page, such as what they use as subheadings.
+4. Note the audience. For example, every top page about "best golf club sets" aimed at beginners.
+
+A content gap check adds more ideas. Tools like Ahrefs' Content Gap show keywords that several top pages rank for. These often reveal subtopics and the words your audience uses. If you are still choosing topics, start with [keyword research](/learn/keyword-research).
+
+## Write a title tag with your keyword
+
+The title tag is the clickable headline shown in search results. Include your target keyword when it reads naturally. A close variant is fine when it fits your angle better.
+
+```html
+<title>45 Best Free SEO Tools (Tried and Tested)</title>
+```
+
+Ahrefs used that title to target "free SEO tools." For "how to get YouTube subscribers," it used "9 Ways to Get More YouTube Subscribers," because the list angle fit better. Give every page its own unique title. Keep it short enough to show in full, and make it describe the page honestly.
+
+## Write a meta description
+
+A meta description is a short summary of the page that search engines often show under the title. It is not a ranking signal, but a good one can earn more clicks.
+
+```html
+<meta name="description" content="We tested 45 free SEO tools for keyword research, rank tracking and site audits. Here are the ones worth using.">
+```
+
+Do not spend hours on it. An Ahrefs study of 192,000 pages found Google rewrote meta descriptions nearly 63% of the time. Still, write one for every important page. Check any page's title and description with the free [meta tag checker](/tools/meta-tag-checker).
+
+## Use a short, descriptive URL slug
+
+A good URL slug tells people what the page is about before they click. The slug is the last part of the URL. The easiest rule is to use your target keyword with hyphens between words.
+
+```text
+Good: https://yourdomain.com/best-golf-balls
+Bad:  https://yourdomain.com/p?id=8271&cat=3
+```
+
+Only use the exact keyword when it makes sense. Avoid changing slugs on pages that already rank. If you must, add a 301 redirect from the old URL.
+
+## Structure your headings
+
+Clear headings help readers skim and help search engines and AI systems understand the page. Use one H1 for the page title. Use H2s for main sections and H3s for sub-sections inside them.
+
+Make each subheading describe what the section says. People skim for the part they need. AI systems also split pages at headings and may quote one section alone. So start each section with its main point, and make sure it makes sense without the rest of the page.
+
+## Add internal links to and from the page
+
+Internal links are links from one page on your site to another. They pass authority between pages and help search engines understand what each page is about. They also help readers find the next thing they need.
+
+Add links both ways. Link from your new page to related pages, and link to it from older related pages. To find good linking pages, search Google for this:
+
+```text
+site:yourdomain.com cover letter
+```
+
+Use descriptive anchor text, like "how to write a resume," instead of "click here." Ahrefs Webmaster Tools also has a free report that suggests internal linking opportunities.
+
+## Optimize your images
+
+Image optimization has three parts: the file name, the alt text and the file size. Images can also bring visits from Google Images.
+
+1. **Name files clearly.** Rename `IMG_4821.jpg` to `puppy.jpg`. Google says file names give clues about what an image shows.
+2. **Write descriptive alt text.** Alt text helps screen reader users and shows when an image fails to load. Describe the image and use keywords only where they fit.
+3. **Compress the file.** Smaller images load faster, and page speed is a ranking signal. ShortPixel works on the web or as a WordPress plugin.
+
+```html
+<img src="puppy.jpg" alt="Puppy sitting on a couch">
+```
+
+On WordPress, add alt text in the media panel when you insert an image.
+
+## Write for readability
+
+Readable content keeps visitors on the page and is easier for AI systems to quote. Ahrefs' course gives five simple tips.
+
+1. Write short sentences and short paragraphs.
+2. Use descriptive subheadings.
+3. Use a font size that is easy to read on desktop and mobile.
+4. Avoid big words.
+5. Write the way you speak.
+
+The free Hemingway app grades your writing. Ahrefs suggests keeping it at or below a sixth-grade level.
+
+## Add schema markup and Open Graph tags
+
+Schema markup and Open Graph tags are the finishing touches on a well-optimized page. Ahrefs calls them the icing on the cake. They help, but they never replace matching intent.
+
+- **Schema markup** is code that helps search engines understand your content. It can unlock rich results, like recipe ratings and cooking times. Create it with the [schema markup generator](/tools/schema-markup-generator) or read our [schema markup guide](/learn/schema-markup).
+- **Open Graph (OG) tags** control the title, description and image shown when someone shares your page on social media.
+
+On WordPress, Yoast and Rank Math add both for you. To check every item on this list at once, run [the free {site.name} audit](/). It reviews titles, meta descriptions, headings, images and schema, then writes the fix for each issue it finds. The result feeds into your {site.brand} SEO Score.
+
+## FAQ
+
+### What is the most important on-page SEO factor?
+
+Matching search intent matters most. If your page is a different type or format from what already ranks, good tags will not save it. Get the intent right first, then polish titles, headings and links.
+
+### How many times should I use my keyword on a page?
+
+There is no magic number. Use the keyword in your title and slug where it reads naturally, and write normally after that. Top pages often rank for hundreds of related keywords without repeating any of them.
+
+### Does word count matter for on-page SEO?
+
+No. Depth matters more than length. Ahrefs found short pages ranking first because they fully solved the searcher's problem.
+
+### How do I check my on-page SEO?
+
+Check single pages with the free {site.name} [meta tag checker](/tools/meta-tag-checker). For a full review of every page, run the free {site.name} audit. It flags missing titles, duplicate descriptions, heading problems and images without alt text.
