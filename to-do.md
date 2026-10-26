@@ -33,7 +33,7 @@ Most items are switched on by adding a value to the `.env` file (copy `.env.exam
 
 ### Optional before launch
 - [x] **Performance pass** (done 23 Oct 2026): critical CSS inlined, fonts lightened, React loads after the page. Lighthouse performance went from 90–94 to 96–99.
-- [ ] **Turn the folder into a git repository** so changes are tracked and can be deployed: `git init`, then commit. (The project is not under version control yet.)
+- [x] **Git repository** (done 26 Oct 2026): pushed to github.com/immanuelphilli1/olloo-seo, branch `main`.
 
 ---
 
